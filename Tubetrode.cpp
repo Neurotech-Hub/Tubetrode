@@ -1,6 +1,7 @@
 #include "Arduino.h"
 #include "Tubetrode.h"
 #include "ADS1X15.h"
+#include "CalibrationData.h"
 
 Tubetrode::Tubetrode(uint8_t sensorBlock1Addr, uint8_t sensorBlock2Addr, uint8_t enablePin) : ADS(sensorBlock1Addr), ADS2(sensorBlock2Addr)
 {
