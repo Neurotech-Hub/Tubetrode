@@ -1,9 +1,7 @@
-#include "Arduino.h"
 #include "Tubetrode.h"
-#include "ADS1X15.h"
 #include "CalibrationData.h"
 
-#define NUM_CAL_ROWS 548 // must match calibration files
+#define NUM_CAL_ROWS 274 // must match calibration files
 #define FLT_MAX 3.4e8
 
 Tubetrode::Tubetrode(uint8_t sensorBlock1Addr, uint8_t sensorBlock2Addr, uint8_t enablePin) : ADS(sensorBlock1Addr), ADS2(sensorBlock2Addr)
@@ -15,11 +13,21 @@ void Tubetrode::begin()
 {
   pinMode(_enablePin, OUTPUT);
   digitalWrite(_enablePin, HIGH);
+  Wire.begin();
   ADS.begin();
-  ADS2.begin();
   ADS.setGain(0);
+  ADS.setDataRate(7); //  0 = slow   4 = medium   7 = fast
+
+  ADS2.begin();
+  ADS2.setDataRate(7); //  0 = slow   4 = medium   7 = fast
   ADS2.setGain(0);
   this->_voltageFactor = ADS.toVoltage(1); // voltage factor
+}
+
+bool Tubetrode::isReady()
+{
+  bool isReady = !ADS.isReady() | !ADS2.isReady();
+  return isReady;
 }
 
 void Tubetrode::readRawSensors(float *rawSensorValues, bool toVolts)

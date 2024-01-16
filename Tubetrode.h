@@ -1,8 +1,8 @@
 #ifndef Tubetrode_h
 #define Tubetrode_h
 
-#include "Arduino.h"
 #include "ADS1X15.h"
+#include "Wire.h"
 
 // Sensor block address definitions
 #define ADDR_GND 0x48
@@ -16,6 +16,7 @@ public:
   Tubetrode(uint8_t sensorBlock1Addr, uint8_t sensorBlock2Addr, uint8_t enablePin);
   void begin();
   void readRawSensors(float *rawSensorValues, bool toVolts = true);
+  bool isReady();
   float estimatePosition();
   void sortAndGetRanks(float array[], int length, int ranks[]);
   int findClosestRankRow(float sensorValues[], int idealRank[][8], int numIdealRanks);
