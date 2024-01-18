@@ -1,8 +1,8 @@
-Dependencies for TubeTrobe:
-SPI
+Dependencies for TubeTrobe:<br>
+SPI<br>
 AXS1X15 library by Rob Tillaart, Version 0.4.1
 
-Dependencies for SD logging with the Adafruit M0;
+Dependencies for SD logging with the Adafruit M0:<br>
 SD
 
 Flashing tips:
