@@ -1,4 +1,4 @@
-#include <Tubetrode.h>
+#include <C:\Users\kravitza.PSYCH\Documents\GitHub\Tubetrode\examples\RawSensorValues\Tubetrode.h>
 
 #define HALL_EN_GPIO 5 // !! User defined, turns on Tubetrode module
 
