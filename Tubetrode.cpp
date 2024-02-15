@@ -16,10 +16,10 @@ void Tubetrode::begin()
   Wire.begin();
   ADS.begin();
   ADS.setGain(0);
-  ADS.setDataRate(7); //  0 = slow   4 = medium   7 = fast
+  ADS.setDataRate(4); //  0 = slow   4 = medium   7 = fast
 
   ADS2.begin();
-  ADS2.setDataRate(7); //  0 = slow   4 = medium   7 = fast
+  ADS2.setDataRate(4); //  0 = slow   4 = medium   7 = fast
   ADS2.setGain(0);
   this->_voltageFactor = ADS.toVoltage(1); // voltage factor
 }
