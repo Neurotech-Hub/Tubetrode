@@ -18,8 +18,6 @@ public:
   void readRawSensors(float *rawSensorValues, bool toVolts = true);
   bool isReady();
   float estimatePosition();
-  void sortAndGetRanks(float array[], int length, int ranks[]);
-  int findClosestRankRow(float sensorValues[], int idealRank[][8], int numIdealRanks);
 
 private:
   ADS1115 ADS,
