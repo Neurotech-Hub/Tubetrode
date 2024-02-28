@@ -1,7 +1,6 @@
 #include "Tubetrode.h"
 #include "CalibrationData.h"
 
-#define NUM_CAL_ROWS 274 // must match calibration files
 #define FLT_MAX 3.4e8
 
 template <size_t N, size_t M>
