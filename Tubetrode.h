@@ -18,12 +18,16 @@ public:
   void readRawSensors(float *rawSensorValues, bool toVolts = true);
   bool isReady();
   float estimatePosition();
+  float averagePosition();
 
 private:
   ADS1115 ADS,
       ADS2;
   uint8_t _enablePin;
   float _voltageFactor;
+  static const int bufferSize = 10; // Size of the position estimate buffer
+  float positionBuffer[bufferSize]; // Buffer to store the last position estimates
+  int bufferIndex = 0;              // Index for the next position estimate to be stored
 };
 
 #endif

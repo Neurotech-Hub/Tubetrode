@@ -12,6 +12,11 @@ constexpr size_t getRowCount(float (&)[N][M])
 Tubetrode::Tubetrode(uint8_t sensorBlock1Addr, uint8_t sensorBlock2Addr, uint8_t enablePin) : ADS(sensorBlock1Addr), ADS2(sensorBlock2Addr)
 {
   this->_enablePin = enablePin;
+  // Initialize the position buffer with zeros
+  for (int i = 0; i < bufferSize; i++)
+  {
+    positionBuffer[i] = 0.0;
+  }
 }
 
 void Tubetrode::begin()
@@ -88,5 +93,19 @@ float Tubetrode::estimatePosition()
 
   float positionEstimate = calibrationData[minIndex][0]; // Get position estimate from calibration data
 
+  // Store the new position estimate in the buffer and update the index
+  positionBuffer[bufferIndex] = positionEstimate;
+  bufferIndex = (bufferIndex + 1) % bufferSize; // Wrap around the buffer index
+
   return positionEstimate;
+}
+
+float Tubetrode::averagePosition()
+{
+  float sum = 0.0;
+  for (int i = 0; i < bufferSize; i++)
+  {
+    sum += positionBuffer[i];
+  }
+  return sum / bufferSize;
 }
