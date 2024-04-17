@@ -82,10 +82,10 @@ void setup()
   ///////////////////////////////////////////////////////////////
   File dataFile = SD.open(filename, FILE_WRITE); // open the file with the name "filename"
   if (dataFile)
-  {                                                                                 // if the file is available...
-    Serial.println("Millis,vBAT,Mag1,Mag2,Mag3,Mag4,Mag5,Mag6,Mag7,Mag8,EstPos");   // Write dataString to the SD card
-    dataFile.println("Millis,vBAT,Mag1,Mag2,Mag3,Mag4,Mag5,Mag6,Mag7,Mag8,EstPos"); // Write dataString to the SD card
-    dataFile.close();                                                               // Close the file
+  {                                                                                         // if the file is available...
+    Serial.println("Millis,vBAT,Mag1,Mag2,Mag3,Mag4,Mag5,Mag6,Mag7,Mag8,EstPos,TrodeId");   // Write dataString to the SD card
+    dataFile.println("Millis,vBAT,Mag1,Mag2,Mag3,Mag4,Mag5,Mag6,Mag7,Mag8,EstPos,TrodeId"); // Write dataString to the SD card
+    dataFile.close();                                                                       // Close the file
   }
 }
 
