@@ -105,7 +105,7 @@ void loop()
   tubetrode2.readRawSensors(sensorValues, true); // Read raw data
   float pos2 = tubetrode2.estimatePosition();
   String dataString2 = "";                                                                                                                                                                                                                                                                                                                                                             // make a string for assembling the data to log
-  dataString2 = String(timeStamp) + "," + String(measuredvbat) + "," + String(sensorValues[0], 3) + "," + String(sensorValues[1], 3) + "," + String(sensorValues[2], 3) + "," + String(sensorValues[3], 3) + "," + String(sensorValues[4], 3) + "," + String(sensorValues[5], 3) + "," + String(sensorValues[6], 3) + "," + String(sensorValues[7], 3) + "," + String(pos1, 3) + ",2"; // <-tubeTrodeId
+  dataString2 = String(timeStamp) + "," + String(measuredvbat) + "," + String(sensorValues[0], 3) + "," + String(sensorValues[1], 3) + "," + String(sensorValues[2], 3) + "," + String(sensorValues[3], 3) + "," + String(sensorValues[4], 3) + "," + String(sensorValues[5], 3) + "," + String(sensorValues[6], 3) + "," + String(sensorValues[7], 3) + "," + String(pos2, 3) + ",2"; // <-tubeTrodeId
 
   // show est. ml remaining
   Serial.println(String(pos1, 2) + " - " + String(pos2, 2));
